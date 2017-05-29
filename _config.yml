@@ -6,7 +6,7 @@ paginate: 8
 permalink: /:title
 encoding: UTF-8
 gems: [jekyll-paginate]
-
+safe: false
 title: 人生和技术都如白驹过隙
 url: http://jplee1969.github.io
 
