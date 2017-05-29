@@ -1,9 +1,6 @@
 ---
 layout: post
 published: true
-tag:
-  - R语言
-  - 数据分析
 title: R语言简介和基本操作
 description: 数据分析与应用选修课的第一次课
 ---  
