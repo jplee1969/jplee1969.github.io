@@ -9,8 +9,8 @@ gems: [jekyll-paginate]
 
 title: 人生和技术都如白驹过隙
 url: http://jplee1969.github.io
-feed: /atom.xml
-author_info: <a href="http://jplee1969.github.io/">jplee</a>
+
+author_info: <a href="http://jplee1969.github.io/">李俊平</a>
 
 myblog:
   gavatar: images/1.jpg
