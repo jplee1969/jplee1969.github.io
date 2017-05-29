@@ -1,10 +1,9 @@
-﻿---
+---
 layout: post
 published: true
 title: R语言简介和基本操作
 description: 数据分析与应用选修课的第一次课
 ---  
-
 
 ## 数据分析与应用（选修，32学时）
   - 教师：李俊平，计算机工程学院计算机信息管理专业，ljp@szpt.edu.cn；
