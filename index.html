@@ -23,13 +23,13 @@ layout: home
     <script>
       $(function() {
         function geturl() {
-          var all = [ {{ site.myblog.coverimgs }} ];
+          var all = [ "http://litaotao.github.io/images/back.jpg"];
           return all[Math.floor((Math.random()*all.length))];
         }
         $('div#avatar').transition({ scale: 2.5 }).transition({ opacity: 1, scale: 1 }, 800, 'ease');
       });
     </script>
-    <div class="aside" style="background-image: url('images/back.jpg');">
+    <div class="aside" style="background-image: url(geturl());">
       <div id="avatar" class="avatar circle" style="width: 150px; height: 150px; position: absolute; right: -75px; top: 75px; opacity: 0;">
         <div class="center circle" style="margin-top: 4px; height: 142px; width: 142px; background-image: url('images/2.jpg')"></div>
       </div> 
