@@ -21,3 +21,4 @@ myblog:
   postbgimg: []
 
 categories: [python, books, teaching, R ]
+gems:[category_archive_plugin, monthly_archive_plugin ]
