@@ -5,10 +5,10 @@ layout: home
 <div class="index-content blog">
     <div class="section">
         <div class="cate-bar">
-          <a href="{{ site.myblog.linkedin }}"><i class="icon-linkedin-sign icon-large"></i><span> Profile</span></a>
+          <a href="{{ site.myblog.linkedin }}"><i class="icon-linkedin-sign icon-large"></i><span> Linkedin</span></a>
           <a href="{{ site.myblog.github }}"><i class="icon-github icon-large"></i><span> Code</span></a>
-          <a href="{{ site.myblog.email }}"><i class="icon-envelope icon-large"></i><span> Mail</span></a>
-          <a class="hide-phone" href="https://github.com/jplee1969" target="_blank"><i class="icon-edit-sign icon-large"></i><span> Resume</span></a>
+          <a class="hide-phone" href="{{ site.myblog.email }}"><i class="icon-envelope icon-large"></i><span> Mail</span></a>
+          <a href="http://jplee1969.github.io" target="_blank"><i class="icon-edit-sign icon-large"></i><span> Resume</span></a>
         </div>
 
         <ul class="artical-list">
@@ -21,10 +21,44 @@ layout: home
         </ul>
     </div>
     
-    <div class="aside">
+    <div class="aside" style="background-image: url( geturl() );">
       <div id="avatar" class="avatar circle" style="width: 150px; height: 150px; position: absolute; right: -75px; top: 75px; opacity: 0;">
         <div class="center circle" style="margin-top: 4px; height: 142px; width: 142px; background-image: url('images/2.jpg')"></div>
       </div> 
-
     </div>
+
+    <script>
+    function geturl() {
+        var all = [
+            "http://litaotao.github.io/images/cover_2.jpg",
+            //"http://litaotao.github.io/images/cover_3.jpg",
+            // "http://litaotao.github.io/images/cover_5.jpg",
+            // "http://litaotao.github.io/images/cover_6.jpg",
+            //"http://litaotao.github.io/images/cover_7.jpg",
+            // "http://litaotao.github.io/images/cover_8.jpg",
+            "http://litaotao.github.io/images/cover_9.jpg",
+            "http://litaotao.github.io/images/cover_10.jpg",
+            //"http://litaotao.github.io/images/cover_11.jpg",
+            // "http://litaotao.github.io/images/cover_12.jpg",
+        ];
+        // 背景图片轮换方式，每小时一换，增加 cache 命中率，加快访问速度；
+        // var index = new Date().getHours() % all.length;
+        // return all[index];
+        return all[Math.floor((Math.random() * all.length))];
+    }
+    $(function(){
+        $('div#avatar').transition({ scale: 2.5 }).transition({ opacity: 1, scale: 1 }, 800, 'ease');
+        photo_url = "background-image: url( " + geturl() + " )";
+        if (document.body.scrollWidth > 770) {
+            $('div.aside')[0].setAttribute("style", photo_url);
+        }
+    })
+    // 切换屏幕［横竖屏］ 时刷新页面；以免大屏图片到小屏依旧保存，体验太差
+    // $( window ).resize(function() { 
+        // console.log("Screen Resized, refresh page start...");
+        // location.reload(); 
+        // console.log("Screen Resized, refresh page done...");
+    // });
+    </script>
+
 </div>
