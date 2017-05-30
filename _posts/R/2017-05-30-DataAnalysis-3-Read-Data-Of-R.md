@@ -1,8 +1,8 @@
 ﻿---
 layout: post
 published: true
-title: R语言分析豆瓣电影250
-description: 基于R语言的爬虫分析
+title: R语言数据读写
+description: 数据分析技术与应用第三次课
 ---
 
 
