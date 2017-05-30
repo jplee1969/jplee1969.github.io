@@ -20,24 +20,8 @@ layout: home
         {% endfor %}
         </ul>
     </div>
-    <script>
-      $(function() {
-        function geturl() {
-          var all = [ "https://jplee1969.github.io/images/cover_2.jpg",
-                    "https://jplee1969.github.io/images/cover_9.jpg",
-                    "https://jplee1969.github.io/images/cover_10.jpg",];
-          return all[Math.floor((Math.random()*all.length))];
-        }
-      });
-      $(function(){
-        $('div#avatar').transition({ scale: 2.5 }).transition({ opacity: 1, scale: 1 }, 800, 'ease');
-        photo_url = "background-image: url( " + geturl() + " )";
-        if (document.body.scrollWidth > 770) {
-            $('div.aside')[0].setAttribute("style", photo_url);
-        }
-      })
-    </script>
-    <div class="aside" style="background-image: url(geturl());">
+    
+    <div class="aside">
       <div id="avatar" class="avatar circle" style="width: 150px; height: 150px; position: absolute; right: -75px; top: 75px; opacity: 0;">
         <div class="center circle" style="margin-top: 4px; height: 142px; width: 142px; background-image: url('images/2.jpg')"></div>
       </div> 
