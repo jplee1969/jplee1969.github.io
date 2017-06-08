@@ -1,10 +1,9 @@
----
+---  
 layout: post
 published: true
 title: R语言数据读写
 description: 数据分析技术与应用第三次课
----
-
+---  
 ## R语言的数据读写
 ***
 
