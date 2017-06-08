@@ -4,10 +4,7 @@ published: true
 title: Jupyter Notebook的快捷键
 description: Jupyter Notebook 的快捷键汇总
 ---
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 **Jupyter Notebook 的快捷键**
 
 Jupyter Notebook 有两种键盘输入模式。编辑模式，允许你往单元中键入代码或文本；这时的单元框线是绿色的。命令模式，键盘输入运行程序命令；这时的单元框线是灰色。
