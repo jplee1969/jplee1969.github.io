@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 published: true
 title: Jupyter Notebook快速入门
