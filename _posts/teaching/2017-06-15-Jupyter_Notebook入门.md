@@ -4,7 +4,6 @@ published: true
 title: Jupyter Notebook快速入门
 description: Jupyter Notebook的启动、界面、单元格的操作、Markdown基础知识等
 ---  
-
 # Jupyter Notebook快速入门
 
 Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。在本文中，我们将介绍 Jupyter notebook 的主要特性，以及为什么对于希望编写漂亮的交互式文档的人来说是一个强大工具。
