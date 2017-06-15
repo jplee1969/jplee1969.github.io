@@ -1,12 +1,11 @@
----  
-layout: post
-published: true
-title: Jupyter Notebook快速入门
-description: Jupyter Notebook的启动、界面、单元格的操作、Markdown基础知识等
----  
+---    
+layout: post  
+published: true  
+title: Jupyter Notebook快速入门  
+description: Jupyter Notebook的启动、界面、单元格的操作、Markdown基础知识等  
+---    
 
-# Jupyter Notebook快速入门  
-
+# Jupyter Notebook快速入门    
 Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。在本文中，我们将介绍 Jupyter notebook 的主要特性，以及为什么对于希望编写漂亮的交互式文档的人来说是一个强大工具。
 
 ## 安装  
@@ -113,8 +112,10 @@ notebook 有一个非常有趣的特性，就是可以修改之前的单元格�
 
 我们再来看看 Markdown 单元格。虽然它的类型是 markdown，但是这类单元格也接受 HTML 代码。这样，你就可以在单元格类实现更加丰富的样式，添加图片，等等。例如，如果想在 notebook 中添加 Jupyter 的 logo，将其大小设置为 100px x 100px，并且放置在单元格左侧，可以这样编写：
 
+```  
  <img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png"
 style="width:100px;height:100px;float:left">
+```  
 
 计算该单元格之后，会出现这样的结果：
 
@@ -122,8 +123,9 @@ style="width:100px;height:100px;float:left">
 
 另外，markdown 单元格还支持 LaTex 语法。例如：
 
+```  
  $$\int_0^{+\infty} x^2 dx$$
-
+```  
 计算上述单元格，将获得下面的 LaTex 方程式：
 
 ![LaTex 方程式](https://www.packtpub.com/sites/default/files/new_blog_images/Extra_Blogs/Jupyter_01_10.png)
@@ -149,17 +151,16 @@ notebook 还有一个强大的特性，就是其导出功能。可以将 noteboo
  %matplotlib inline
 
 > 译注：要想执行成功，需要先`pip install matplotlib`。
+> jplee注：Anaconda中已经包含matplotlib  
 
 运行这个指令可能要花个几秒钟，但是在 notebook 中需要执行一次即可。接下来，我们来绘制一个图形，看看具体的集成效果：
-
- import matplotlib.pyplot as plt
-import numpy as np
-
+```  
+import matplotlib.pyplot as plt
+import numpy as np  
 x = np.arange(20)
 y = x**2
-
 plt.plot(x, y)
-
+```  
 上面的代码将绘制方程式 y=x^2 。计算单元格后，会得到如下图形：
 
 ![绘制方程式 y=x^2](https://www.packtpub.com/sites/default/files/new_blog_images/Extra_Blogs/Jupyter_01_11.png)
