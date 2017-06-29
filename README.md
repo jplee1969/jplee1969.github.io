@@ -1,208 +1,115 @@
-# github-blog-template
+## 1、安装Anaconda
+Anaconda是基于Python的科学计算和数据分析的集成环境包，我们安装的是Anaconda 3.6的64位版本，集成了Python 3.6以及在科学计算和数据分析中常用的Python模块，包括numpy、scipy、matplotlib、pandas等。同时提供IPython、Spyder、Jupyter Notebook等流行的开发工具。我们课程主要采用Jupyter Notebook、Jupyter Lab和Pycharm作为开发环境。
 
-***别忘了加星哦～～～***
+## 2、配置Anaconda
+主要配置Anaconda的缺省目录等
+### 为anaconda的jupyter notebook设置初始化目录 
+在使用jupyter进行编程时，初始化目录可能不是自己想要的目录，那么下面讲解修改成自己想要的目录。
 
-## 写在前面
+1） 在命令行中输入：
+```
+jupyter notebook --generate-config
+```
+会产生一个配置文件
+我的会显示：
+```
+Writing default config to: C:\Users\jplee\.jupyter\jupyter_notebook_config.py
+```
+ 
 
-使用 github 也快有3年了，的确觉得 github 的方便，易用，而且不仅仅在版本控制方面［版本控制方面个人感觉比 svn 好用了太多太多］，而且还提供了一个平台，让你随时跟进最近技术和趋势。今天就来说说其中一个比较实用  
+2） 找到对应的文件，搜索c.NotebookApp.notebook_dir，将前面的#注释去掉，在后面填上自己想要设置的初始化目录。比如我设置成：
+```
+c.NotebookApp.notebook_dir = u'D:\Python'
+```
+以后就会将'D:\Python'这个目录成为初始化的目录。 
 
-## 1. 最简单的步骤
+### 设置Anaconda的镜像网站
+如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可，在命令行中运行以下命令：  
+```
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 
-- step 1 : 新建一个 repo，并克隆 repo 到本地
-
->>
-repo 名定为 你的github用户名 + .github.io，比如说，我的 github 用户名叫 `litaotao`, 那新建的 repo 名就叫 `litaotao.github.io`
-
-- step 2 : 克隆[模版](https://github.com/litaotao/github-blog-template)
-
-![github-pages-blog-1.png](http://litaotao.github.io/images/github-pages-blog-1.png)
-
-使用 git 命令克隆模版：*git clone git@github.com:litaotao/github-blog-template.git*
-
+conda config --set show_channel_urls yes
 ```
 
-taotao@mac007:~/Desktop/tmp$git clone git@github.com:litaotao/github-blog-template.git
-Cloning into 'github-blog-template'...
-remote: Counting objects: 75, done.
-remote: Compressing objects: 100% (68/68), done.
-remote: Total 75 (delta 4), reused 72 (delta 4), pack-reused 0
-Receiving objects: 100% (75/75), 1.19 MiB | 425.00 KiB/s, done.
-Resolving deltas: 100% (4/4), done.
-Checking connectivity... done.
+## 3*、安装Jupyter Lab
+这是Python官方最新开发的一个基于浏览器和Jupyter Notebook的集成开发环境IDE，在一个界面集成了Jupyter Notebook、IPython控制台以及Python程序编辑器。  
+在命令行中执行以下两条命令：
+```  
+pip install jupyterlab
 
+jupyter serverextension enable --sys-prefix jupyterlab
 ```
 
-- step 3 : 复制模版相关文件到你的本地repo中
+## 4、安装PyCharm
+PyCharm是目前最流行的用于Python开发的IDE，课程中主要用来开发稍大的程序。提供智能提示、调试、即时语法纠错等功能。  
+官网下载其最新版本即可。安装完成后，需简单配置其Python解释器、字体等。
 
-首先，先删掉模版里的一个文件夹 `.git`
-
-```
-
-taotao@mac007:~/Desktop/tmp/github-blog-template$ll
-...
-...
-...
-drwxr-xr-x  13 taotao  staff   442B May 10 10:32 .git
-taotao@mac007:~/Desktop/tmp/github-blog-template$sudo rm -rf .git
-
-```
-
-然后，复制模版下所有文件到你的本地repo中，使用命令 *cp -r github-blog-template/* your_local_repo/* 
+## 5、简单实例
+本文在Jupyter Notebook中完成，体现数据分析中“文学编程”的理念。下面的例子代码、结果和文本很好地结合在一起。
 
 
-```
-taotao@mac007:~/Desktop/tmp$cp -r github-blog-template/* your_local_repo/
-```
-
-- step 4 : 本地运行
-
-进入到 your_local_repo 目录，使用 `jekyll server --watch` 命令启动本地博客。
-
-```
-
-taotao@mac007:~/Desktop/tmp/your_local_repo$jekyll server --watch
-Configuration file: /Users/chenshan/Desktop/tmp/your_local_repo/_config.yml
-            Source: /Users/chenshan/Desktop/tmp/your_local_repo
-       Destination: /Users/chenshan/Desktop/tmp/your_local_repo/_site
- Incremental build: disabled. Enable with --incremental
-      Generating...
-                    done in 0.588 seconds.
- Auto-regeneration: enabled for '/Users/chenshan/Desktop/tmp/your_local_repo'
-Configuration file: /Users/chenshan/Desktop/tmp/your_local_repo/_config.yml
-    Server address: http://127.0.0.1:4000/
-  Server running... press ctrl-c to stop.
-
-```
-
-如果一切顺利，在浏览器访问：localhost:4000 即可看到你的博客了，我已经在模版里放了两篇文章，截图如下。
-
-![github-pages-blog-2.png](http://litaotao.github.io/images/github-pages-blog-2.png) 
-
-
-## 2. 自定义配置
-
-如果你已经成功完成了第一步，那恭喜，你马上就能拥有一个自己的博客了，在此之前，你只需要改一个配置文件即可：github-blog-template/_config.yml，你需要改的地方我用中文标注出来了，可以参考注释说明和我的博客来配置：[https://github.com/litaotao/litaotao.github.io](https://github.com/litaotao/litaotao.github.io)
-
-
-```
-    markdown: kramdown
-    highlighter: rouge
-    paginate: 8
-    permalink: /:title
-    encoding: UTF-8
-    gems: [jekyll-paginate]
-    
-    title: 你的博客名称
-    url: 你的博客地址，就叫 http://github用户名+.github.io
-    feed: /atom.xml
-    author_info: <a href="http://litaotao.github.io/">你的名字</a>
-    
-    myblog:
-      gavatar: 你的头像地址
-      gpname: 你的名字
-      linkedin: 你的 linkedin 地址
-      github: 你的 github 地址
-      email: mailto:你的 email 地址
-      coverimgs: []
-      postbgimg: []
-    
-    categories: [你的博客目录名称，对应到 your_local_repo/_posts/ 下的文件夹名]
-```
-
-ok,如果你已经更改好配置文件了，并且本地运行正常的话，可以上传到 github 了。
-
-## 3. 深度阅读之目录文件说明
-
-```
-
-    taotao@mac007:~/Desktop/github/github-blog-template$tree
-    ### 404 页面，你可以自定义
-    ├── 404.html
-    ├── README.md
-    ### 博客配置文件，基本上是最重要的一个文件之一了
-    ├── _config.yml
-    ### 博客页面模版目录
-    ├── _layouts
-    │   ├── default.html
-    │   ├── home.html
-    │   ├── page.html
-    │   └── post.html
-    ### 博客文章目录，下面可以按文件夹进行博文分类
-    ### 注意，博文文件格式必须是：时间-博文标题.md，参考下面的格式
-    ├── _posts
-    │   ├── books
-    │   │   └── 2016-04-29-books-recommend-and-summarize-on-apr-2016.md
-    │   └── python
-    │       └── 2016-04-01-spark-in-finance-and-investing.md
-    ### 这个是你的站点地图了，用户可以访问这个文件夹下面的所有文件
-    ### 比如说，用户可以直接访问我的 litaotao.github.io/404.html; litaotao.github.io/images/2.jpg
-    ### 比如说，当你访问 litaotao.github.io/spark-in-finance-and-investing  
-    ###        实际上是访问了 litaotao.github.io/spark-in-finance-and-investing.html
-    ### 你会发现这下面有很多在博客更目录下重复的文件夹，比如说 css，js，images等文件夹，不要纳闷，这是正常的
-    ### 因为你的博客更目录下的文件，是 jekyll 用来渲染一个 html 文件的，html 文件及其所需要的任何文件，都会放到 _site 这个
-    ### 专用的目录下面
-    ├── _site
-    │   ├── 404.html
-    │   ├── README.md
-    │   ├── atom.xml
-    │   ├── books-recommend-and-summarize-on-apr-2016.html
-    │   ├── css
-    │   │   ...
-    │   │   ...
-    │   │   ...
-    │   ├── images
-    │   │   ├── 2.jpg
-    │   │   ├── spark-in-finance-1.jpg
-    │   │   ├── spark-in-finance-2.jpg
-    │   │   └── spark-in-finance-3.jpg
-    │   ├── index.html
-    │   ├── js
-    │   │   ...
-    │   │   ...
-    │   │   ...
-    │   └── spark-in-finance-and-investing.html
-    ├── atom.xml
-    ├── css
-    │   │   ...
-    │   │   ...
-    │   │   ...
-    ├── images
-    │   │   ...
-    │   │   ...
-    │   │   ...
-    ├── index.html
-    └── js
-        │   │   ...
-        │   ...
-        │   ...
+```python
+# 定义两个列表变量
+x = range(20)
+y = [i ** 2 + i * 2 - 3 for i in x]
+# 引入matplotlib模块绘图
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.scatter(x,y)
+plt.show()
 ```
 
 
-## 4. 总结
+![png](/images/output_5_0.png)
 
-总的来说，利用 github 搭建博客的步骤为：
 
-- 创建一个 github用户名 + '.github.io' 的新 repo，并克隆到本地
-- 把模版，除去 '.git' 的所有文件 copy 到你的repo 中
-- 更改 '_config.yml' 配置文件
-- 本地试运行，上传到github
+再来一个三维绘图的实例，当然事先需要安装mpl_toolkits模块：  
+pip install mpl_toolkits
 
-## 5. 其他话题
 
-一个简单，但基本够用的博客就这样搭建完成了。其他还有一些扩展话题，感兴趣的同学可以 google 或者联系我，比如说：
+```python
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 
-- 如何给你的博客加上 评论功能
+fig = plt.figure()
+ax = Axes3D(fig)
+X = np.arange(-4, 4, 0.25)
+Y = np.arange(-4, 4, 0.25)
+X, Y = np.meshgrid(X, Y)
+R = np.sqrt(X**2 + Y**2)
+Z = np.sin(R)
 
-![github-pages-blog-3.png](http://litaotao.github.io/images/github-pages-blog-3.png)
+# 具体函数方法可用 help(function) 查看，如：help(ax.plot_surface)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='rainbow')
 
-- 如何给你的博客加上 cnzz 统计功能
+plt.show()
+```
 
-![github-pages-blog-4.png](http://litaotao.github.io/images/github-pages-blog-4.png)
 
-- 如何给你的博客加上 growingio 统计功能
+![png](/images/output_7_0.png)
 
-![github-pages-blog-5.png](http://litaotao.github.io/images/github-pages-blog-5.png)
 
-- 如何给你的博客加上 百度分享功能
+> 我们可以在这里写下对数据和图形的分析，最终形成完整的分析报告。
 
-![github-pages-blog-6.png](http://litaotao.github.io/images/github-pages-blog-6.png)
+## 6、文学编程
+- 为了能与同行们有效沟通，你需要重现整个分析过程，并将说明文字、代码、图表、公式、结论都整合在一个文档中。显然传统的文本编辑工具并不能满足这一需求，所以这儿隆重推荐数据分析神器 Jupyter Notebook，不仅能在文档中执行代码，还能以网页形式分享。  
+- 文学编程 ( Literate programming )，这是由 Donald Knuth 提出的编程方法。传统的结构化编程，人们需要按计算机的逻辑顺序来编写代码；与此相反，文学编程则可以让人们按照自己的思维逻辑来开发程序。  
+- 简单来说，文学编程的读者不是机器，而是人。 我们从写出让机器读懂的代码，过渡到向人们解说如何让机器实现我们的想法，其中除了代码，更多的是叙述性的文字、图表等内容。这么一看，这不正是数据分析人员所需要的编码风格么？不仅要当好一个程序员，还得当好一个作家。那么 Jupyter Notebook 就是不可或缺的一款集编程和写作于一体的效率工具。
+
+## 7、安装Chrome浏览器
+安装Chrome浏览器，并将其设为默认浏览器。Jupyter Notebook和Jupyter Lab在IE内核的浏览器中运行不正常，经过试验，Chrome浏览器是最佳选择。
+
+## 8*、创建Jupyter Lab的快捷方式
+打开Jupyter Notebook快捷方式所在文件夹，复制其快捷方式到桌面，修改名字为“Juputer Lab”，右键单击选择属性，目标修改为“C:\ProgramData\Anaconda3\Scripts\jupyter-lab.exe”（操作系统不同，具体位置可能会有差异）。
+
+## 9、安装Jupyter Notebook扩展
+以管理员方式打开命令行，执行两条命令：
+```  
+pip install jupyter_contrib_nbextensions  
+jupyter contrib nbextension install --user  
+```
+
+## 10、如果不用Jupyter Lab，可省略第3和第8步
+因为目前Jupyter Lab尚处于测试阶段，据笔者检测，目前不支持Tab键代码提示、Jupyter Extension等功能。
+
+
