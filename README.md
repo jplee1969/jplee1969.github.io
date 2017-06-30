@@ -23,6 +23,8 @@ c.NotebookApp.notebook_dir = u'D:\Python'
 ```
 以后就会将'D:\Python'这个目录成为初始化的目录。 
 
+3）找到Jupyter Notebook的快捷方式，右键打开属性，将“目标”最后的“User Profile”去掉，将“起始位置”修改为初始化目录。
+
 ### 设置Anaconda的镜像网站
 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可，在命令行中运行以下命令：  
 ```
